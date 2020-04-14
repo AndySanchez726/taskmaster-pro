@@ -131,4 +131,3 @@ $(".list-group").on("blur", "textarea", function() {
 // load tasks for the first time
 loadTasks();
 
-
