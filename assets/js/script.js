@@ -103,7 +103,7 @@ $(".list-group").on("click", "p", function() {
 });
 
 $(".list-group").on("blur", "textarea", function() {
-  // get the textarea'scurrent value/text
+  // get the textarea's current value/text
   var text = $(this)
     .val()
     .trim();
@@ -118,7 +118,11 @@ $(".list-group").on("blur", "textarea", function() {
   var index = $(this)
     .closest(".list-group-item")
     .index();
-  tasks[status][index].text = text;
+    console.log(text)
+    console.log(status)
+    console.log(index)
+    console.log(text)
+  tasks[status][index] = text
   saveTasks();
   //recreate p element
   var taskP = $("<p>")
@@ -167,7 +171,7 @@ $(".list-group").on("blur", "input[type='text']", function() {
     .index();
 
   // update task in array and re-save to localstorage
-  tasks[status][index].date = date;
+  tasks[status][index] = date;
   saveTasks();
 
   // recreate span element with bootstrap classes
@@ -178,6 +182,7 @@ $(".list-group").on("blur", "input[type='text']", function() {
   // replace input with span element
   $(this).replaceWith(taskSpan);
 });
+
 // load tasks for the first time
 loadTasks();
 
